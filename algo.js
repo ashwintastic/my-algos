@@ -11,41 +11,44 @@ function getPath(object) {
                 iter(k, array);
             });
         }
+
         result.push(p);
         return traversalTrack
     }
 
-    let result = [];
+    var result = []
     return iter(object, [1]);
 
 }
 
 
-var x =  {
+var x = {
     id: 1,
-    children: [{
-        id: 2,
-        children: [{
-            id: 5,
-            children: [{
-                id: 8
-            }]
-        },
-            {
-                id: 6
-            }
-        ]
-    },
+    children: [
         {
             id: 3,
-            children: [{
-                id: 9
-            }, {id: 10 }]},
+            children: [
+                {
+                    id: 2,
+                    children:[{id: 5}]
+                },
+                {
+                    id: 4,
+                    children: [{id: 5}]
+                },
+                {
+                    id: 5
+                }
+            ]
+        },
         {
-            id: 4, children: [{id: 12, children: [{id: 13}]}, {id:15}]
+            id: 2,
+            children: [
+                { id: 5 }
+            ]
         }
     ]
-};
+}
 
 console.log(getPath(x));
 

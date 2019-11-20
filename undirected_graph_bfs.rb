@@ -41,7 +41,6 @@ while stack.length != 0 do
       unless visited[id]
         stack << ele
       end
-
     end
   end
 end
