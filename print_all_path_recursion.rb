@@ -27,17 +27,20 @@ x = {
 }
 
 
-def print_all_path(graph, arr)
+def print_all_path(graph, arr, start_point = 1, end_point)
   if graph[:children]
     graph[:children].each do |ele|
       temp = arr.dup << ele[:id]
-      print_all_path(ele, temp)
+      print_all_path(ele, temp, start_point, end_point)
     end
   end
-  #if arr[-1] == 4
-   p arr
-  #end
+  start_index = arr.find_index(start_point)
+  end_index = arr.find_index(end_point)
+
+  if(start_index &&  end_index) && (start_index < end_index)
+    p arr.slice(start_index..end_index)
+  end
 end
 
-root_id = x[:children][0][:id]
-print_all_path(x, [root_id])
+root_id = x[:id]
+print_all_path(x, [root_id], 2, 5)
